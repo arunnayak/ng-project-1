@@ -5,9 +5,12 @@ eventsApp.controller('EventController',
 
 		eventData.getEvent(function(event){
 			$scope.eventdata = event.event;
-			console.log(event.event);
+		console.log(event.event);
 		});
 
+		//$scope.eventData = eventData.getEvent();
+
+		//console.log($scope.eventData);
 		//ng directives
 
 		$scope.snippet = '<span style="color: red;">ngBindTemplate example</span>';
