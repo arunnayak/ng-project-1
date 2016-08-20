@@ -1,0 +1,123 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<p>
+				<label>Event:</label>
+				{{eventdata.id}}
+
+				<label>Name:</label>
+				{{eventdata.name}}
+
+				<label>Location:</label>
+				{{eventdata.location}}
+
+				<label>Author:</label>
+				{{eventdata.author}}
+
+				<label>Date:</label>
+				{{eventdata.date | date:'mediumDate'}}
+
+			</p>
+			<!-- ng other usefull directives -->
+			<div class="row">
+				<div class="col-md-4">
+					<h4>ngBind</h4>
+					<p ng-bind="eventdata.name | uppercase"></p>
+
+					<h4>ngBindTemplate</h4>
+					<p ng-bind-template="{{eventdata.name}} {{eventdata.author}}"></p>
+
+					<h4 ng-show="val">ngHide</h4>
+					<h4 ng-hide="val">ngShow</h4>
+
+					<h4>ngNonBindable</h4>
+					<p ng-non-bindable>{{3+ 3}}</p>
+					<hr/>
+					<h4>Expressions</h4>
+					<p>{{3+3}}</p>
+					<p>{{'hello' + ' world'}}</p>
+					<p>{{[1,2,3][1]}}</p>
+					
+					<h4>Currecny</h4>
+					<p>{{34 | currency}}</p>
+					
+					<h4>Date</h4>
+					<p>{{eventdata.date | date:'medium'}}</p>
+
+				</div>
+			</div>
+			<!-- ng other usefull directives -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="searchRecords">
+							Filter: 
+						</label>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="input-group col-md-3 pull-left">
+			  						<div class="input-group-addon">
+			  							<b class="glyphicon glyphicon-search"></b>
+			  						</div>
+									<input ng-model="searchRecords.first_name" type="text" placeholder="Enter name" class="form-control" name="searchRecords">
+								</div>
+								<div class="input-group col-md-3 pull-left">
+								&nbsp;
+			  						<div class="input-group-addon">
+			  							<b class="glyphicon glyphicon-filter"></b>
+			  						</div>
+									<select ng-model="query" class="form-control">
+										<option selected value="">All</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>
+								<a ng-click="sortBy('id')" href="#">#</a>
+							</th>
+							<th>
+								<a ng-click="sortBy('first_name')" href="javascript:void(0);">First name</a>
+							</th>
+							<th>
+								<a ng-click="sortBy('last_name')" href="javascript:void(0);">Last name</a>
+							</th>
+							<th>
+								<a ng-click="sortBy('gender')" href="javascript:void(0);">Gender</a>
+							</th>
+							<th>
+								<a ng-click="sortBy('email')" href="javascript:void(0);">Email</a>
+							</th>
+							<th>
+								<a ng-click="sortBy('address')" href="javascript:void(0);">Address</a>
+							</th>
+							<th>
+								<a ng-click="sortBy('durations')" href="javascript:void(0);">duration</a>
+							</th>
+						</tr>	
+					</thead>
+					<tbody>
+						<tr ng-repeat="person in eventdata.persons | orderBy:propertyName:reverse | filter:searchRecords | limitTo:query">
+							<td>{{person.id}}</td>
+							<td>{{person.first_name}}</td>
+							<td>{{person.last_name}}</td>
+							<td>{{person.gender}}</td>
+							<td>{{person.email}}</td>
+							<td>{{person.address}}</td>
+							<td>{{person.duration | time}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

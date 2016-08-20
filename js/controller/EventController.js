@@ -1,13 +1,11 @@
 'use strict';
 
 eventsApp.controller('EventController', 
-	function EventController($scope, eventData){
+	function EventController($scope, eventDataObj){
 
-		eventData.getEvent(function(event){
+		eventDataObj.getEvent(function(event){
 			$scope.eventdata = event.event;
-		console.log(event.event);
 		});
-
 		//$scope.eventData = eventData.getEvent();
 
 		//console.log($scope.eventData);
@@ -25,6 +23,4 @@ eventsApp.controller('EventController',
 	      $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
 	      $scope.propertyName = propertyName;
     	};
- 
-		//$scope.getPhotos = photos.getPhotos;
 });

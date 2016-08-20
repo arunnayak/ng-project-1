@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form name="eventForm">
+                <div class="form-group">
+                  <label for="first_name">First name</label>
+                  <input required class="form-control" type="text" ng-model="person.first_name" id="first_name">
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last name</label>
+                  <input required class="form-control" type="text" ng-model="person.last_name" id="last_name">
+                </div>
+                <div class="form-group">
+                  <label for="gender">Gender</label>
+                  <input class="form-control" type="text" ng-model="person.gender" id="gender">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input class="form-control" type="email" ng-model="person.email" id="email">
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input class="form-control" type="text" ng-model="person.address" id="address">
+                </div>
+                <div class="form-group">
+                  <label for="duration">Duration</label>
+                  <input class="form-control" type="text" ng-model="person.duration" id="duration">
+                </div>
+                <div class="text-right">
+                    <button ng-disabled="eventForm.$invalid" type="submit" ng-click="save(event, eventForm)" class="btn btn-primary">Submit</button>
+                    <button type="button" ng-click="cancel()" class="btn btn-default">cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
