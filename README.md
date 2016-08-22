@@ -1,7 +1,8 @@
 # ng-project-1
 
-npm install bower
+npm install
 
-bower install angular angualar-sanitize bootstrap jquery
+http-server
 
-go to app folder run http-server
+Enjoy!!
+
