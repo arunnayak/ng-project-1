@@ -108,7 +108,7 @@
 					<tbody>
 						<tr ng-repeat="person in eventdata.persons | orderBy:propertyName:reverse | filter:searchRecords | limitTo:query">
 							<td>{{person.id}}</td>
-							<td>{{person.first_name}}</td>
+							<td><a href="#/details/{{person.id}}">{{person.first_name}}</a></td>
 							<td>{{person.last_name}}</td>
 							<td>{{person.gender}}</td>
 							<td>{{person.email}}</td>

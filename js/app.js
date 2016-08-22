@@ -14,4 +14,13 @@ var eventsApp = angular.module('eventsApp', ['ngRoute'])
 			templateUrl:'templates/create.html',
 			controller: 'EditEventController'
 		});
-});
+
+		$routeProvider.when('/details/:eventId',
+		{
+			templateUrl:'templates/details.html',
+			controller: 'EventController'
+		});
+		
+		$routeProvider.otherwise({redirectTo: '/'});
+		
+});	
